@@ -7,7 +7,7 @@ checkout stage('------- Checkout --------') {
  [name: '*/master']
   ],
  userRemoteConfigs: [
- [url: 'https://github.com/anjali368/Playground']
+ [url: 'https://github.com/anjali368/Playground'],
   extensions: [
  [$class: 'PathRestriction', excludedRegions: '', includedRegions: projectToBuild + '/.*'],
   [$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [
