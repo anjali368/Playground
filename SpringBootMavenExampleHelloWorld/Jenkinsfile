@@ -1,6 +1,6 @@
 node{
 	
- stage ('---------- build ---------------') {
+ stage ('---------- checkout ---------------') {
  ([$class: 'GitSCM',
  branches: [[name: '*/master']],
  doGenerateSubmoduleConfigurations: false,
@@ -13,6 +13,8 @@ node{
  stage ('---------- build ---------------') {
          
 	// for building java projects
-        rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install', buildInfo: buildInfo
+       // rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install', buildInfo: buildInfo
+	 cd SpringBootMavenExampleHelloWorld
+	 sh 'mvn clean install'
  }
 }
