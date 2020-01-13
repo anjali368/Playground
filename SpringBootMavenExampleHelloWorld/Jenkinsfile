@@ -14,7 +14,7 @@ node{
          
 	// for building java projects
        // rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install', buildInfo: buildInfo
-	 cd SpringBootMavenExampleHelloWorld
-	 sh 'mvn clean install'
+	 sh "mvn clean install"
  }
+	cleanWs()
 }
