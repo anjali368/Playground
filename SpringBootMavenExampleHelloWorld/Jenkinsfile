@@ -1,22 +1,14 @@
 node{
-projectToBuild = 'SpringBootMavenExampleHelloWorld'
+	
+ stage ('---------- build ---------------') {
+ ([$class: 'GitSCM',
+ branches: [[name: '*/master']],
+ doGenerateSubmoduleConfigurations: false,
+ extensions: [],
+ submoduleCfg: [],
+ userRemoteConfigs: [[url: 'https://github.com/anjali368/Playground']]])
+}
 
-checkout stage('------- Checkout --------') {
-([$class: 'GitSCM',
- branches: [
- [name: '*/master']
-  ],
- userRemoteConfigs: [
- [git 'https://github.com/anjali368/Playground'],
-  extensions: [
- [$class: 'PathRestriction', excludedRegions: '', includedRegions: projectToBuild + '/.*'],
-  [$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [
-      		[$class: 'SparseCheckoutPath', path: '/' + projectToBuild + '/']
-    	 ]]
- ],
- ]
- ])
- }
  
  stage ('---------- build ---------------') {
          
